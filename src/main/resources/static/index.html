@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>S3food</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./js/vendor/angular.js"></script>
+<script type="text/javascript" src="./js/vendor/angular-route.js"></script>
+<script type="text/javascript" src="./js/app/app.js"></script>
+
+<script src="./js/app/home/controller/home.controller.js"></script>
+
+<script src="./js/app/product/product.module.js"></script>
+<script src="./js/app/product/service/product.service.js"></script>
+<script src="./js/app/product/controllers/product-list.controller.js"></script>
+<script
+	src="./js/app/product/controllers/product-register.controller.js"></script>
+
+
+<script src="./js/app/user/user-module.js"></script>
+<script src="./js/app/user/controller/user-login.controller.js"></script>
+<script src="./js/app/user/controller/user-registration.controller.js"></script>
+<script src="./js/app/user/controller/user-data.controller.js"></script>
+
+<script src="./js/app/user/service/user.service.js"></script>
+
+<script src="./js/app/navbar/navbar.module.js"></script>
+<script src="./js/app/navbar/controller/navbar-controller.controller.js"></script>
+
+
+<link rel="sty lesheet" href="./css/album.css" />
+<link rel="stylesheet" href="./css/carousel.css" />
+<link rel="stylesheet" href="./css/loader.css" />
+
+
+
+</head>
+<body ng-controller="NavbarCtrl">
+
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
+			<a class="navbar-brand" href="#"
+				style="font-style: inherit; font-family: Verdana, Geneva, Tahoma, sans-serif">S3food<font
+				size="1px" class="text-warning"> {{navbar.user.firstName}}</font>
+			</a>
+
+
+			<!-- <div class="navbar-brand font font-oblique font-bold"
+				style="font-size: 25px; color: white; font-style: italic;">
+				S3food<font size="1px" class="text-warning"> {{user.firstName}}</font>
+			</div> -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" ng-repeat="navlink in navbar.navLinks"><a
+						class="nav-link" href="{{navlink.urlPattern}}"> <small>{{navlink.linkName}}</small>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+
+
+	<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+		<a class="navbar-brand" href="#"
+			style="font-style: italic; font-family: 'Times New Roman', Times, serif"></a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="#"><small
+					class="">@S3food.in, Contrived and originated by shaiksha</small></a></li>
+		</ul>
+	</nav> -->
+
+
+	<div class="pos-f-t">
+		<nav class="navbar navbar-dark bg-dark fixed-bottom">
+			<div class="collapse" id="navbarToggleExternalContent">
+				<div class="bg-dark p-4">
+					<!-- <h5 class="text-white h6">Collapsed content</h5>
+					<span class="text-muted">Toggleable via the navbar brand.</span> -->
+					<ul class="navbar-nav mr-auto">
+
+						<li class="nav-item" ng-repeat="navlink in navbar.navLinks"><a
+							class="nav-link" href="{{navlink.urlPattern}}">{{navlink.linkName}}
+						</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<button ng-click="toggleClick();" class="navbar-toggler"
+				type="button" data-toggle="collapse"
+				data-target="#navbarToggleExternalContent"
+				aria-controls="navbarToggleExternalContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<ul ng-show="showCopyRight" class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#"><small
+						class="">@S3food.in, Contrived by shaiksha</small></a></li>
+			</ul>
+		</nav>
+	</div>
+
+
+
+	<div ng-view="">
+	
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<div style="padding-top: 50px" class="container" style="margin-top: 50px">
+
+	<div ng-show="showMessage" class="alert alert-danger alert-dismissible text-center">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{message}}
+	</div>
+	<h5  class="text-center text-dark">Please
+		Sign In</h5>
+	<br>
+
+	<div class="row">
+		<div style="padding-left: 10px; padding-right: 10px"
+			class="col-sm form-group">
+			<div class="input-group flex-nowrap">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="addon-wrapping">@</span>
+				</div>
+				<input type="text" class="form-control" placeholder="Username"
+					ng-model="username" aria-label="Username"
+					aria-describedby="addon-wrapping">
+			</div>
+		</div>
+		<div class="col-sm form-group"
+			style="padding-right: 10px; padding-left: 10px">
+			<div class="input-group flex-nowrap">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="addon-wrapping">**</span>
+				</div>
+				<input type="password" class="form-control" placeholder="Password"
+					ng-model="password" aria-label="password"
+					aria-describedby="addon-wrapping">
+			</div>
+		</div>
+	</div>
+	<div ng-hide="flag"  style=" padding-top: 10px"
+		class=" form-group">
+		<button class="btn btn-primary btn-block" type="button" disabled>
+			<span class="spinner-grow spinner-grow-sm" role="status"
+				aria-hidden="true"></span> Authenticating...
+		</button>
+	</div>
+
+	<div ng-show="flag" style=" padding-top: 10px"
+		class=" form-group">
+		<div class="input-group flex-nowrap">
+			<button ng-click="login()" class="btn btn-md btn-warning btn-block">Login</button>
+		</div>
+	</div>
+	
+		<small style="padding-bottom: 50px;">Dont you have an account? <a href="#/user-registration">&nbsp;Click here</a></small>
+	
+	
+</div>

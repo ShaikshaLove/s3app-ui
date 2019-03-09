@@ -1,0 +1,75 @@
+<form style="margin-top: 50px" class="container">
+
+	<div ng-show="showMessage">
+		<div class="alert alert-info alert-dismissible text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{message}}</strong>
+		</div>
+	</div>
+
+	<!-- 	<h4 class=" text-center text-warning">Sign Up</h4>
+ -->
+	<div
+		class="mx-auto shadow-lg p-4 mb-4 bg-white border border-danger rounded-lg">
+
+
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<!-- <label for="inputEmail4">First Name</label> --> <input type="text" placeholder=" First Name"
+					ng-model="userData.firstName" class="form-control text-warning" id="inputEmail4"
+					> <small ng-show="error"
+					class="text-danger">{{errors.firstName}}</small>
+			</div>
+			<div class="form-group col-md-6">
+				<!-- <label for="inputPassword4">Last Name</label> --> <input type="text" placeholder=" Last Name"
+					ng-model="userData.lastName" class="form-control"
+					id="inputPassword4" > <small
+					ng-show="error" class="text-danger">{{errors.lastName}}</small>
+
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<!-- <label for="inputCity">Email</label> --> <input type="email" placeholder=" Your Email"
+					ng-model="userData.email" class="form-control" id="inputCity">
+				<small ng-show="error" class="text-danger">{{errors.email}}</small>
+
+			</div>
+			<div class="form-group col-md-4">
+			<!-- 	<label for="inputZip">Password</label>  --><input type="password" placeholder=" Password "
+					ng-model="userData.password" class="form-control" id="inputZip">
+				<small ng-show="error" class="text-danger">{{errors.password}}</small>
+
+			</div>
+			<div class="form-group col-md-4">
+			<!-- 	<label for="inputZip">Conform Password</label> --> <input
+					type="password" ng-model="userData.matchingPassword" placeholder="Conform Password"
+					class="form-control" id="inputZip"> <small ng-show="error"
+					class="text-danger">{{errors.matchingPassword}}</small>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<!-- 	<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="gridCheck">
+				<label class="form-check-label" for="gridCheck"> Check me
+					out </label>
+			</div>
+		</div> -->
+
+			<button ng-show="flag" style="margin-top: 10px;" type="submit"
+				class="btn btn-primary text-center" ng-click="submit()">Register</button>
+
+			<button ng-hide="flag" style="margin-top:10px;"
+				class="btn btn-danger text-center active" type="button" disabled>
+				<span class="spinner-border spinner-border-sm" role="status"
+					aria-hidden="true"></span> We are registering you...
+			</button>
+			
+				<div class="form-group"><small >Do you have an account already? <a href="/login">&nbsp;<strong class="text-danger">Click here</strong></a></small></div>
+			
+		</div>
+	</div>
+</form>

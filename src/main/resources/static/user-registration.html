@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>S3food</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- 
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./js/vendor/angular.js"></script>
+<script type="text/javascript" src="./js/vendor/angular-route.js"></script>
+<script type="text/javascript" src="./js/app/app.js"></script>
+
+<script src="./js/app/home/controller/home.controller.js"></script>
+
+<script src="./js/app/product/product.module.js"></script>
+<script src="./js/app/product/service/product.service.js"></script>
+<script src="./js/app/product/controllers/product-list.controller.js"></script>
+<script
+	src="./js/app/product/controllers/product-register.controller.js"></script>
+
+
+<script src="./js/app/user/user-module.js"></script>
+<script src="./js/app/user/controller/user-login.controller.js"></script>
+<script src="./js/app/user/controller/user-registration.controller.js"></script>
+<script src="./js/app/user/service/user.service.js"></script>
+
+<link rel="sty lesheet" href="./css/album.css" />
+<link rel="stylesheet" href="./css/carousel.css" />
+<link rel="stylesheet" href="./css/loader.css" />
+ -->
+ 
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link
+	href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+	rel="stylesheet" crossorigin="anonymous" />
+
+</head>
+<body>
+
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
+		<a class="navbar-brand" href="#"
+				style="font-style: inherit; font-family: Verdana, Geneva, Tahoma, sans-serif">S3food<font size="1px" class="text-warning" > {{user.firstName}}</font> </a>
+				<!--<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="#/home">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item active"><a class="nav-link"
+						href="/#/productRegister">Sell a product</a></li>
+					<li class="nav-item active"><a class="nav-link"
+						href="/#/products">Offers</a></li>
+	                       <li class="nav-item active"><a class="nav-link"
+						href="/#/user-registration">New User Registration</a></li> 
+					<li class="nav-item active"><a class="nav-link" href="/logout">Logout</a></li>
+				</ul>
+				<form class="form-inline mt-2 mt-md-0">
+					<input size="70" class="form-control mr-sm-2" type="text"
+						placeholder="Search" aria-label="Search">
+					<button class="btn btn-md btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>-->
+		</nav>
+	</header>
+
+	<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-bottom">
+		<a class="navbar-brand" href="#"
+			style="font-style: italic; font-family: 'Times New Roman', Times, serif"></a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="#"><small>S3food.in,
+						Contrived and originated by shaiksha</small></a></li>
+		</ul>
+
+	</nav>
+
+
+	<div style="margin-top: 60px" class="container">
+		
+		
+		<form style="margin-top: 50px" class="container">
+
+	<div ng-show="showMessage">
+		<div class="alert alert-info alert-dismissible text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{message}}</strong>
+		</div>
+	</div>
+
+	<!-- 	<h4 class=" text-center text-warning">Sign Up</h4>
+ -->
+	<div
+		class="mx-auto shadow-lg p-4 mb-4 bg-white border border-danger rounded-lg">
+
+
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputEmail4">First Name</label> <input type="text"
+					ng-model="userData.firstName" class="form-control" id="inputEmail4"
+					placeholder="First Name"> <small ng-show="error"
+					class="text-danger">{{errors.firstName}}</small>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword4">Last Name</label> <input type="text"
+					ng-model="userData.lastName" class="form-control"
+					id="inputPassword4" placeholder="Last Name"> <small
+					ng-show="error" class="text-danger">{{errors.lastName}}</small>
+
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="inputCity">Email</label> <input type="email"
+					ng-model="userData.email" class="form-control" id="inputCity">
+				<small ng-show="error" class="text-danger">{{errors.email}}</small>
+
+			</div>
+			<div class="form-group col-md-4">
+				<label for="inputZip">Password</label> <input type="password"
+					ng-model="userData.password" class="form-control" id="inputZip">
+				<small ng-show="error" class="text-danger">{{errors.password}}</small>
+
+			</div>
+			<div class="form-group col-md-4">
+				<label for="inputZip">Conform Password</label> <input
+					type="password" ng-model="userData.matchingPassword"
+					class="form-control" id="inputZip"> <small ng-show="error"
+					class="text-danger">{{errors.matchingPassword}}</small>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<!-- 	<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="gridCheck">
+				<label class="form-check-label" for="gridCheck"> Check me
+					out </label>
+			</div>
+		</div> -->
+
+			<button ng-show="flag" style="margin-top: 10px;margin-bottom: 10px;" type="submit"
+				class="btn btn-primary text-center" ng-click="submit()">Register</button>
+
+			<button ng-hide="flag" style="margin-top:10px;margin-bottom: 10px;"
+				class="btn btn-danger text-center active" type="button" disabled>
+				<span class="spinner-border spinner-border-sm" role="status"
+					aria-hidden="true"></span> We are registering you...
+			</button>
+			
+				<div class="form-group">		<small >Do you have an account already? <a href="/login">&nbsp;<strong class="text-danger">Click here</strong></a></small></div>
+			
+		</div>
+	</div>
+</form>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+</body>
+</html>
