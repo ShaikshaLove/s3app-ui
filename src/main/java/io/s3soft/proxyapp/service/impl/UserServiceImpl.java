@@ -16,13 +16,13 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User getUserByEmail(String email) {
-		User user=restTemplate.getForObject("https://s3food-users.herokuapp.com/users/"+email.toLowerCase(),User.class);
+		User user=restTemplate.getForObject("https://s3food-users.herokuapp.com/api/users/"+email.toLowerCase(),User.class);
 		return user;
 	}
 	
 	@Override
 	public List<User> getAllUsers() {
-		List<User> user=restTemplate.getForObject("https://s3food-users.herokuapp.com/users/",List.class);
+		List<User> user=restTemplate.getForObject("https://s3food-users.herokuapp.com/api/users",List.class);
 		return user;
 	}
 }
