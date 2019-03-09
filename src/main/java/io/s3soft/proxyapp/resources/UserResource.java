@@ -46,7 +46,7 @@ public class UserResource {
 		HttpHeaders headers=new HttpHeaders();
 		headers.add("Content-type", "application/json");
 		HttpEntity<UserDto> request=new HttpEntity<>(userDto,headers);
-		ResponseEntity<Optional> res=restTemplate.exchange("https://s3food-users.herokuapp.com/users",HttpMethod.POST,request,Optional.class);
+		ResponseEntity<Optional> res=restTemplate.exchange("https://s3food-users.herokuapp.com/api/users",HttpMethod.POST,request,Optional.class);
 		Optional optional=res.getBody();
 		if(res.getStatusCodeValue()==201) {
 			String message=(String)optional.get();
