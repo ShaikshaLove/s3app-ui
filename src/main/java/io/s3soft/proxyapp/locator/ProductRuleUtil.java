@@ -16,12 +16,12 @@ public class ProductRuleUtil {
 	private RestTemplate restTemplate;
 
 	public List<Product> findAllProducts(){
-		ProductWrapper products=restTemplate.getForObject("https://product-service-in.herokuapp.com/api/products",ProductWrapper.class);
+		ProductWrapper products=restTemplate.getForObject("https://product-service-in.herokuapp.com/products",ProductWrapper.class);
 		List<Product> listProduct=products.getProducts();
 		System.out.println(listProduct)	;
-		listProduct.forEach((product)->{
+		/*listProduct.forEach((product)->{
 			product.setImageName("https://product-service-in.herokuapp.com/images/"+product.getImageName());
-		});
+		});*/
 		return listProduct;	
 	}
 }
